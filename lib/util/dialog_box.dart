@@ -29,6 +29,7 @@ class DialogBox extends StatelessWidget {
                   hintStyle: TextStyle(color: Colors.white38)),
               style: TextStyle(color: Colors.white70),
             ),
+            SizedBox(height: 4),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
