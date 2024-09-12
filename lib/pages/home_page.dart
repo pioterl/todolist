@@ -13,10 +13,8 @@ class _HomePageState extends State<HomePage> {
   final _controller = TextEditingController();
 
   List toDoList = [
-    ["Make Tutorial", false],
-    ["Do Exercise", false],
-    ["Trzeci wpis", false],
-    ["Blablaa wpis", false]
+    ["Example task", false],
+    ["Another task", false],
   ];
 
   void checkBoxChanged(bool? value, int index) {
@@ -41,7 +39,9 @@ class _HomePageState extends State<HomePage> {
   void saveNewTask() {
     setState(() {
       toDoList.add([_controller.text, false]);
+      _controller.clear();
     });
+    Navigator.of(context).pop();
   }
 
   @override
@@ -59,10 +59,17 @@ class _HomePageState extends State<HomePage> {
             taskName: toDoList[index][0],
             taskCompleted: toDoList[index][1],
             onChanged: (value) => checkBoxChanged(value, index),
+            delete: (context) => deleteTask(index),
           );
         },
         itemCount: toDoList.length,
       ),
     );
+  }
+
+  void deleteTask(int index) {
+    setState(() {
+      toDoList.removeAt(index);
+    });
   }
 }
