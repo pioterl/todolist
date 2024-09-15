@@ -2,7 +2,8 @@
 
 Simple to do list created in Flutter just for learning. App uses using local database to store tasks.
 
-![screenshot.png](screenshot.png)
+![](screenshot-light.png)
+![](screenshot-dark.png)
 
 ## Getting Started
 
