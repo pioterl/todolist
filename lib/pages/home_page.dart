@@ -63,6 +63,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(title: Text("To do")),
       floatingActionButton: FloatingActionButton(
         onPressed: createNewTask,
+        shape: CircleBorder(),
         child: Icon(Icons.add),
       ),
       body: ListView.builder(

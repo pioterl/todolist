@@ -4,7 +4,7 @@ import 'package:untitled/pages/home_page.dart';
 
 void main() async {
   await Hive.initFlutter();
-  var myBox = await Hive.openBox("myBox");
+  await Hive.openBox("myBox");
 
   runApp(const MyApp());
 }
@@ -17,6 +17,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         darkTheme: ThemeData(brightness: Brightness.dark),
-        home: HomePage());
+        home: const HomePage());
   }
 }
