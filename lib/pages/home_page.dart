@@ -59,12 +59,20 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white12,
-      appBar: AppBar(title: Text("To do")),
+      backgroundColor: Theme.of(context).colorScheme.onSurface,
+      appBar: AppBar(
+        title: Text(
+          "To do",
+          style: TextStyle(color: Theme.of(context).colorScheme.tertiary),
+        ),
+      ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.green,
         onPressed: createNewTask,
-        shape: CircleBorder(),
-        child: Icon(Icons.add),
+        shape: const CircleBorder(),
+        child: const Icon(
+          Icons.add,
+        ),
       ),
       body: ListView.builder(
         itemBuilder: (context, index) {

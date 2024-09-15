@@ -26,10 +26,11 @@ class DialogBox extends StatelessWidget {
               autofocus: true,
               controller: controller,
               decoration: const InputDecoration(
-                  focusedBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.white)),
-                  hintText: "Type new task",
-                  hintStyle: TextStyle(color: Colors.white38)),
+                focusedBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white)),
+                hintText: "Type new task",
+                hintStyle: TextStyle(color: Colors.white38),
+              ),
               style: const TextStyle(color: Colors.white70),
             ),
             Row(
