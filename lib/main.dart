@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
           brightness: Brightness.dark,
           colorScheme: ColorScheme.dark(
             onSurface: Colors.grey.shade900,
-            primary: Colors.grey.shade500,
+            primary: Colors.grey.shade600,
             secondary: Colors.grey.shade800,
             tertiary: Colors.grey.shade200,
           ),

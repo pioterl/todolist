@@ -29,7 +29,20 @@ class _HomePageState extends State<HomePage> {
 
   void checkBoxChanged(bool? value, int index) {
     setState(() {
-      database.toDoList[index][1] = !database.toDoList[index][1];
+      database.toDoList[index][1] = value ?? false;
+      var selectedTask = database.toDoList[index];
+      database.toDoList.removeAt(index);
+      if (value == false) {
+        database.toDoList.insert(0, selectedTask);
+      } else {
+        int insertIndex =
+            database.toDoList.indexWhere((item) => item[1] == true);
+        if (insertIndex == -1) {
+          database.toDoList.add(selectedTask);
+        } else {
+          database.toDoList.insert(insertIndex, selectedTask);
+        }
+      }
     });
     database.updateDb();
   }

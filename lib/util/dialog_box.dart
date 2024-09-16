@@ -32,6 +32,9 @@ class DialogBox extends StatelessWidget {
                 hintStyle: TextStyle(color: Colors.white38),
               ),
               style: const TextStyle(color: Colors.white70),
+              onSubmitted: (value) {
+                onSave();
+              },
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
@@ -40,7 +43,7 @@ class DialogBox extends StatelessWidget {
                 const SizedBox(width: 4),
                 MyButton(text: "Cancel", onPressed: onCancel),
               ],
-            )
+            ),
           ],
         ),
       ),

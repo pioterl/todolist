@@ -17,7 +17,7 @@ class ToDoTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
+      padding: const EdgeInsets.only(top: 15, left: 15, right: 15),
       child: Slidable(
         endActionPane: ActionPane(
           motion: const StretchMotion(),
@@ -31,31 +31,39 @@ class ToDoTile extends StatelessWidget {
           ],
         ),
         child: Container(
-          padding: const EdgeInsets.all(20),
-          decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.secondary,
-              borderRadius: BorderRadius.circular(3)),
-          child: Row(
-            children: [
-              Checkbox(
-                value: taskCompleted,
-                onChanged: onChanged,
-                activeColor: Theme.of(context).colorScheme.secondary,
-                checkColor: Theme.of(context).colorScheme.primary,
-                side: BorderSide(
-                    color: Theme.of(context).colorScheme.tertiary, width: 2),
-              ),
-              Text(
-                taskName,
-                style: TextStyle(
-                  color: taskCompleted
-                      ? Theme.of(context).colorScheme.primary
-                      : Theme.of(context).colorScheme.tertiary,
+            padding: const EdgeInsets.all(15),
+            decoration: BoxDecoration(
+                color: taskCompleted
+                    ? Theme.of(context).colorScheme.onSurface
+                    : Theme.of(context).colorScheme.secondary,
+                borderRadius: BorderRadius.circular(3)),
+            child: Row(
+              children: [
+                Checkbox(
+                  value: taskCompleted,
+                  onChanged: onChanged,
+                  activeColor: Theme.of(context).colorScheme.secondary,
+                  checkColor: Theme.of(context).colorScheme.primary,
+                  side: BorderSide(
+                    color: Theme.of(context).colorScheme.tertiary,
+                    width: 2,
+                  ),
                 ),
-              ),
-            ],
-          ),
-        ),
+                InkWell(
+                  onTap: () {
+                    onChanged!(!taskCompleted);
+                  },
+                  child: Text(
+                    taskName,
+                    style: TextStyle(
+                      color: taskCompleted
+                          ? Theme.of(context).colorScheme.primary
+                          : Theme.of(context).colorScheme.tertiary,
+                    ),
+                  ),
+                ),
+              ],
+            )),
       ),
     );
   }

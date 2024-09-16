@@ -2,7 +2,10 @@
 
 Simple to do list created in Flutter just for learning. App uses using local database to store tasks.
 
+If you want to to see changelog, just look in commits.
+
 ![](screenshot-light.png)
+
 ![](screenshot-dark.png)
 
 ## Getting Started
