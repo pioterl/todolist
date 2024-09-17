@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class MyButton extends StatelessWidget {
+class AddTaskButton extends StatelessWidget {
   final String text;
   VoidCallback onPressed;
 
-  MyButton({super.key, required this.text, required this.onPressed});
+  AddTaskButton({super.key, required this.text, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {

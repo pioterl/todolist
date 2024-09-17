@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:provider/provider.dart';
 import 'package:untitled/data/database.dart';
+import 'package:untitled/util/theme_provider.dart';
 import '../util/dialog_box.dart';
+import '../util/theme.dart';
 import '../util/todo_tile.dart';
 
 class HomePage extends StatefulWidget {
@@ -78,6 +81,18 @@ class _HomePageState extends State<HomePage> {
           "To do",
           style: TextStyle(color: Theme.of(context).colorScheme.tertiary),
         ),
+        actions: <Widget>[
+          IconButton(
+            onPressed:
+                Provider.of<ThemeProvider>(context, listen: false).toggleTheme,
+            icon: Icon(
+              Provider.of<ThemeProvider>(context).themeData == darkMode
+                  ? Icons.toggle_off
+                  : Icons.toggle_on,
+              color: Theme.of(context).colorScheme.tertiary,
+            ),
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.green,
@@ -87,17 +102,21 @@ class _HomePageState extends State<HomePage> {
           Icons.add,
         ),
       ),
-      body: ListView.builder(
-        itemBuilder: (context, index) {
-          return ToDoTile(
-            taskName: database.toDoList[index][0],
-            taskCompleted: database.toDoList[index][1],
-            onChanged: (value) => checkBoxChanged(value, index),
-            delete: (context) => deleteTask(index),
-          );
-        },
-        itemCount: database.toDoList.length,
-      ),
+      body: buildTaskList(),
+    );
+  }
+
+  ListView buildTaskList() {
+    return ListView.builder(
+      itemBuilder: (context, index) {
+        return ToDoTile(
+          taskName: database.toDoList[index][0],
+          taskCompleted: database.toDoList[index][1],
+          onChanged: (value) => checkBoxChanged(value, index),
+          delete: (context) => deleteTask(index),
+        );
+      },
+      itemCount: database.toDoList.length,
     );
   }
 
