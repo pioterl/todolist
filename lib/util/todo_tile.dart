@@ -52,10 +52,7 @@ class ToDoTile extends StatelessWidget {
                   width: 2,
                 ),
               ),
-              InkWell(
-                onTap: () {
-                  onChanged!(!taskCompleted);
-                },
+              SelectionArea(
                 child: Text(
                   taskName,
                   style: TextStyle(

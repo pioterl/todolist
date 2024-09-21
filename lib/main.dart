@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:untitled/pages/home_page.dart';
-import 'package:untitled/util/theme.dart';
 import 'package:untitled/util/theme_provider.dart';
 
 void main() async {

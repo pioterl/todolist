@@ -96,14 +96,18 @@ class _HomePageState extends State<HomePage> {
         style: TextStyle(color: Theme.of(context).colorScheme.tertiary),
       ),
       actions: <Widget>[
-        IconButton(
-          onPressed:
-              Provider.of<ThemeProvider>(context, listen: false).toggleTheme,
-          icon: Icon(
-            Provider.of<ThemeProvider>(context).themeData == darkMode
-                ? Icons.toggle_off
-                : Icons.toggle_on,
-            color: Theme.of(context).colorScheme.tertiary,
+        Padding(
+          padding: const EdgeInsets.only(
+              right: 5), // Adjust the value to move the icon left
+          child: IconButton(
+            onPressed:
+                Provider.of<ThemeProvider>(context, listen: false).toggleTheme,
+            icon: Icon(
+              Provider.of<ThemeProvider>(context).themeData == darkMode
+                  ? Icons.toggle_off
+                  : Icons.toggle_on,
+              color: Theme.of(context).colorScheme.tertiary,
+            ),
           ),
         ),
       ],
