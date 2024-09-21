@@ -15,9 +15,9 @@ class DialogBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      backgroundColor: Colors.black26,
+      backgroundColor: Theme.of(context).colorScheme.secondary,
       content: SizedBox(
-        height: 80,
+        height: 85,
         width: 400,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -25,23 +25,35 @@ class DialogBox extends StatelessWidget {
             TextField(
               autofocus: true,
               controller: controller,
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
+                enabledBorder: UnderlineInputBorder(
+                  borderSide:
+                      BorderSide(color: Theme.of(context).colorScheme.primary),
+                ),
+                disabledBorder: UnderlineInputBorder(
+                  borderSide:
+                      BorderSide(color: Theme.of(context).colorScheme.primary),
+                ),
                 focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.white)),
+                  borderSide:
+                      BorderSide(color: Theme.of(context).colorScheme.primary),
+                ),
                 hintText: "Type new task",
-                hintStyle: TextStyle(color: Colors.white38),
+                hintStyle:
+                    TextStyle(color: Theme.of(context).colorScheme.primary),
               ),
-              style: const TextStyle(color: Colors.white70),
+              style: TextStyle(color: Theme.of(context).colorScheme.tertiary),
               onSubmitted: (value) {
                 onSave();
               },
             ),
+            const SizedBox(height: 4),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                AddTaskButton(text: "Save", onPressed: onSave),
+                AddNewTaskButton(text: "Save", onPressed: onSave),
                 const SizedBox(width: 4),
-                AddTaskButton(text: "Cancel", onPressed: onCancel),
+                AddNewTaskButton(text: "Cancel", onPressed: onCancel),
               ],
             ),
           ],

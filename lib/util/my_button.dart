@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
 
-class AddTaskButton extends StatelessWidget {
+class AddNewTaskButton extends StatelessWidget {
   final String text;
   VoidCallback onPressed;
 
-  AddTaskButton({super.key, required this.text, required this.onPressed});
+  AddNewTaskButton({super.key, required this.text, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialButton(
+    return ElevatedButton(
       onPressed: onPressed,
-      color: Colors.white10,
       child: Text(
         text,
-        style: const TextStyle(color: Colors.white70),
+        style: TextStyle(color: Theme.of(context).colorScheme.tertiary),
       ),
     );
   }

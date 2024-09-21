@@ -30,7 +30,7 @@ class _HomePageState extends State<HomePage> {
 
   final _controller = TextEditingController();
 
-  void checkBoxChanged(bool? value, int index) {
+  void changeTaskStatus(bool? value, int index) {
     setState(() {
       database.toDoList[index][1] = value ?? false;
       var selectedTask = database.toDoList[index];
@@ -65,7 +65,7 @@ class _HomePageState extends State<HomePage> {
 
   void saveNewTask() {
     setState(() {
-      database.toDoList.add([_controller.text, false]);
+      database.toDoList.insert(0, [_controller.text, false]);
       _controller.clear();
     });
     database.updateDb();
@@ -76,24 +76,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.onSurface,
-      appBar: AppBar(
-        title: Text(
-          "To do",
-          style: TextStyle(color: Theme.of(context).colorScheme.tertiary),
-        ),
-        actions: <Widget>[
-          IconButton(
-            onPressed:
-                Provider.of<ThemeProvider>(context, listen: false).toggleTheme,
-            icon: Icon(
-              Provider.of<ThemeProvider>(context).themeData == darkMode
-                  ? Icons.toggle_off
-                  : Icons.toggle_on,
-              color: Theme.of(context).colorScheme.tertiary,
-            ),
-          ),
-        ],
-      ),
+      appBar: buildAppBar(context),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.green,
         onPressed: createNewTask,
@@ -106,13 +89,34 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  AppBar buildAppBar(BuildContext context) {
+    return AppBar(
+      title: Text(
+        "To do",
+        style: TextStyle(color: Theme.of(context).colorScheme.tertiary),
+      ),
+      actions: <Widget>[
+        IconButton(
+          onPressed:
+              Provider.of<ThemeProvider>(context, listen: false).toggleTheme,
+          icon: Icon(
+            Provider.of<ThemeProvider>(context).themeData == darkMode
+                ? Icons.toggle_off
+                : Icons.toggle_on,
+            color: Theme.of(context).colorScheme.tertiary,
+          ),
+        ),
+      ],
+    );
+  }
+
   ListView buildTaskList() {
     return ListView.builder(
       itemBuilder: (context, index) {
         return ToDoTile(
           taskName: database.toDoList[index][0],
           taskCompleted: database.toDoList[index][1],
-          onChanged: (value) => checkBoxChanged(value, index),
+          onChanged: (value) => changeTaskStatus(value, index),
           delete: (context) => deleteTask(index),
         );
       },
