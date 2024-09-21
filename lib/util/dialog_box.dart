@@ -16,6 +16,9 @@ class DialogBox extends StatelessWidget {
   Widget build(BuildContext context) {
     return AlertDialog(
       backgroundColor: Theme.of(context).colorScheme.secondary,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(3), // Set the roundness here
+      ),
       content: SizedBox(
         height: 85,
         width: 400,
@@ -26,18 +29,9 @@ class DialogBox extends StatelessWidget {
               autofocus: true,
               controller: controller,
               decoration: InputDecoration(
-                enabledBorder: UnderlineInputBorder(
-                  borderSide:
-                      BorderSide(color: Theme.of(context).colorScheme.primary),
-                ),
-                disabledBorder: UnderlineInputBorder(
-                  borderSide:
-                      BorderSide(color: Theme.of(context).colorScheme.primary),
-                ),
-                focusedBorder: UnderlineInputBorder(
-                  borderSide:
-                      BorderSide(color: Theme.of(context).colorScheme.primary),
-                ),
+                enabledBorder: buildUnderlineInputBorder(context),
+                disabledBorder: buildUnderlineInputBorder(context),
+                focusedBorder: buildUnderlineInputBorder(context),
                 hintText: "Type new task",
                 hintStyle:
                     TextStyle(color: Theme.of(context).colorScheme.primary),
@@ -59,6 +53,12 @@ class DialogBox extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  UnderlineInputBorder buildUnderlineInputBorder(BuildContext context) {
+    return UnderlineInputBorder(
+      borderSide: BorderSide(color: Theme.of(context).colorScheme.primary),
     );
   }
 }

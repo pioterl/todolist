@@ -97,8 +97,7 @@ class _HomePageState extends State<HomePage> {
       ),
       actions: <Widget>[
         Padding(
-          padding: const EdgeInsets.only(
-              right: 5), // Adjust the value to move the icon left
+          padding: const EdgeInsets.only(right: 5),
           child: IconButton(
             onPressed:
                 Provider.of<ThemeProvider>(context, listen: false).toggleTheme,
