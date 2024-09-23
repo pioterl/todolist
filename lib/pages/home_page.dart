@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:untitled/data/database.dart';
-import 'package:untitled/util/theme_provider.dart';
+import 'package:untitled/theme/theme_provider.dart';
 import '../util/dialog_box.dart';
-import '../util/theme.dart';
+import '../theme/theme.dart';
 import '../util/todo_tile.dart';
 
 class HomePage extends StatefulWidget {

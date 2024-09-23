@@ -29,9 +29,12 @@ class DialogBox extends StatelessWidget {
               autofocus: true,
               controller: controller,
               decoration: InputDecoration(
-                enabledBorder: buildUnderlineInputBorder(context),
-                disabledBorder: buildUnderlineInputBorder(context),
-                focusedBorder: buildUnderlineInputBorder(context),
+                enabledBorder: buildUnderlineInputBorder(
+                    context, Theme.of(context).colorScheme.primary),
+                disabledBorder: buildUnderlineInputBorder(
+                    context, Theme.of(context).colorScheme.primary),
+                focusedBorder: buildUnderlineInputBorder(
+                    context, Theme.of(context).colorScheme.tertiary),
                 hintText: "Type new task",
                 hintStyle:
                     TextStyle(color: Theme.of(context).colorScheme.primary),
@@ -56,9 +59,10 @@ class DialogBox extends StatelessWidget {
     );
   }
 
-  UnderlineInputBorder buildUnderlineInputBorder(BuildContext context) {
+  UnderlineInputBorder buildUnderlineInputBorder(
+      BuildContext context, Color color) {
     return UnderlineInputBorder(
-      borderSide: BorderSide(color: Theme.of(context).colorScheme.primary),
+      borderSide: BorderSide(color: color),
     );
   }
 }
