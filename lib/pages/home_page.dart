@@ -3,7 +3,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:untitled/data/database.dart';
 import 'package:untitled/theme/theme_provider.dart';
-import '../util/dialog_box.dart';
+import '../util/new_task_dialog.dart';
 import '../theme/theme.dart';
 import '../util/todo_tile.dart';
 
@@ -53,7 +53,7 @@ class _HomePageState extends State<HomePage> {
     showDialog(
       context: context,
       builder: (context) {
-        return DialogBox(
+        return NewTaskDialog(
           controller: _controller,
           onSave: saveNewTask,
           onCancel: Navigator.of(context).pop,

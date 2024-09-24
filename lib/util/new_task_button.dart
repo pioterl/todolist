@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class AddNewTaskButton extends StatelessWidget {
+class NewTaskButton extends StatelessWidget {
   final String text;
   VoidCallback onPressed;
 
-  AddNewTaskButton({super.key, required this.text, required this.onPressed});
+  NewTaskButton({super.key, required this.text, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,7 @@ class AddNewTaskButton extends StatelessWidget {
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(3), // Set the roundness here
+          borderRadius: BorderRadius.circular(3),
         ),
       ),
       child: Text(

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:untitled/util/my_button.dart';
+import 'package:untitled/util/new_task_button.dart';
 
-class DialogBox extends StatelessWidget {
+class NewTaskDialog extends StatelessWidget {
   final controller;
   VoidCallback onSave;
   VoidCallback onCancel;
 
-  DialogBox(
+  NewTaskDialog(
       {super.key,
       required this.controller,
       required this.onSave,
@@ -48,9 +48,9 @@ class DialogBox extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                AddNewTaskButton(text: "Save", onPressed: onSave),
+                NewTaskButton(text: "Save", onPressed: onSave),
                 const SizedBox(width: 4),
-                AddNewTaskButton(text: "Cancel", onPressed: onCancel),
+                NewTaskButton(text: "Cancel", onPressed: onCancel),
               ],
             ),
           ],
