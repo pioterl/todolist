@@ -33,17 +33,16 @@ class _HomePageState extends State<HomePage> {
   void changeTaskStatus(bool? value, int index) {
     setState(() {
       database.toDoList[index][1] = value ?? false;
-      var selectedTask = database.toDoList[index];
-      database.toDoList.removeAt(index);
-      if (value == false) {
-        database.toDoList.insert(0, selectedTask);
+      var task = database.toDoList.removeAt(index);
+      if (task[1] == false) {
+        database.toDoList.insert(0, task);
       } else {
-        int insertIndex =
+        int lastIncompleteIndex =
             database.toDoList.indexWhere((item) => item[1] == true);
-        if (insertIndex == -1) {
-          database.toDoList.add(selectedTask);
+        if (lastIncompleteIndex == -1) {
+          database.toDoList.add(task);
         } else {
-          database.toDoList.insert(insertIndex, selectedTask);
+          database.toDoList.insert(lastIncompleteIndex, task);
         }
       }
     });
