@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 class NewTaskButton extends StatelessWidget {
   final String text;
-  VoidCallback onPressed;
+  final VoidCallback onPressed;
 
-  NewTaskButton({super.key, required this.text, required this.onPressed});
+  const NewTaskButton({super.key, required this.text, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {

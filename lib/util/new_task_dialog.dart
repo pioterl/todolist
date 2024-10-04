@@ -3,10 +3,10 @@ import 'package:untitled/util/new_task_button.dart';
 
 class NewTaskDialog extends StatelessWidget {
   final controller;
-  VoidCallback onSave;
-  VoidCallback onCancel;
+  final VoidCallback onSave;
+  final VoidCallback onCancel;
 
-  NewTaskDialog(
+  const NewTaskDialog(
       {super.key,
       required this.controller,
       required this.onSave,
